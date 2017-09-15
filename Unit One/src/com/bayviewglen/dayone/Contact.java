@@ -1,6 +1,8 @@
 package com.bayviewglen.dayone;
 
-public class Contact {
+import java.util.Comparator;
+
+public class Contact implements Comparator<Contact>{
 
 	private String Lname;
 	private String Fname;
@@ -36,5 +38,12 @@ public class Contact {
 	}
 	public void setPhone(String phone) {
 		Phone = phone;
+	}
+
+	@Override
+	public int compare(Contact a, Contact b) {
+		String c = this.Lname+this.Fname;
+		String d = b.Lname+b.Fname;
+		return c.compareTo(d);
 	}
 }
