@@ -51,6 +51,7 @@ public class BinarySearchTree {
 		
 		evaluate(current);
 	}
+
 	private void evaluate(IntTreeNode current) {
 		System.out.println(current.getData());
 	}
@@ -75,5 +76,70 @@ public class BinarySearchTree {
 		}else {
 		add(root,x);
 		}
+	}
+	public IntTreeNode findSmallest(IntTreeNode current) {
+		
+		if(current.getLeft()==null){
+			evaluate(current);
+			return current;
+		}else {
+			current.getLeft();
+		}
+		return current;
+	}
+	public IntTreeNode findLargest(IntTreeNode current) {
+			if(current.getRight()==null) {
+				evaluate(current);
+				return current;
+				
+			}else {
+				current.getRight();
+			}
+			return current;
+	}
+	public void searchBST(IntTreeNode root, int key) {
+		if(root.getData()==key) {
+			evaluate(root);
+		}else if(key<root.getData()){
+			searchBST(root.getLeft(),key);
+		}else if(key>root.getData()) {
+			searchBST(root.getRight(),key);
+		}else {
+			evaluate(root);
+		}
+		
+	}
+	public boolean delete(IntTreeNode root,IntTreeNode Parent, int Target) {
+		boolean validResult = false;
+		IntTreeNode DeleteNode = root;
+		IntTreeNode parent= Parent;
+		
+		if(root==null) {
+			validResult = false;
+		}else if(Target<root.getData()) {
+			
+			delete(root.getLeft(),parent, Target);
+			
+		}else if(Target>root.getData()) {
+			delete(root.getRight(),parent, Target);
+			
+		}else if(root.getLeft()==null) {
+			DeleteNode=(root.getRight());
+			delete(DeleteNode,parent,Target);
+			validResult=true;
+			
+		}else if(root.getRight()==null) {
+			DeleteNode=(root.getLeft());
+			delete(DeleteNode,parent,Target);
+			validResult=true;
+		}else {
+			DeleteNode=findLargest(root.getLeft());
+			DeleteNode.setLeft(root.getLeft());
+			DeleteNode.setRight(root.getRight());
+			validResult = true;
+		}
+		
+		
+		return validResult;
 	}
 }
