@@ -58,13 +58,13 @@ public class AddressSearchTree {
 		
 		public void add(AddressTreeNode current,Contact x) {
 			AddressTreeNode newContact = new AddressTreeNode(x);
-		//TODO	
+		//TODO	THIS IS DEFINATELY WRONG IDK FIZX IT MAN
 			if(root==null) {
 				root= newContact;
-			}else if(x.compare(newContact.getData(),current.getData())<=-1){
+			}else if(current.getData().compare(newContact.getData(),current.getData())<=-1){
 				add(current.getLeft(),x);
 				
-			}else if(x.compare(newContact.getData(),current.getData())>=1) {
+			}else if(current.getData().compare(newContact.getData(),current.getData())>=1) {
 				add(current.getRight(),x);
 			}
 			
@@ -97,7 +97,6 @@ public class AddressSearchTree {
 				}
 				return current;
 		}
-		//TODO Everything bellow
 		public void searchBST(AddressTreeNode root, Contact Name) {
 			if(root.getData().equals(Name)) {
 				evaluate(root);
@@ -114,14 +113,14 @@ public class AddressSearchTree {
 			boolean validResult = false;
 			AddressTreeNode DeleteNode = root;
 			AddressTreeNode parent= Parent;
-			
+			//TODO I STILL THINK THIS IS WRONG
 			if(root==null) {
 				validResult = false;
-			}else if(Name.compare(root.getData(),DeleteNode.getData())<=-1) {
+			}else if(root.getData().compare(root.getData(),DeleteNode.getData())<=-1) {
 				parent = root;
 				delete(root.getLeft(),parent, Name);
 				
-			}else if(Name.compare(Parent.getData(),DeleteNode.getData())>=1) {
+			}else if(root.getData().compare(Parent.getData(),DeleteNode.getData())>=1) {
 				parent = root;
 				delete(root.getRight(),parent, Name);
 				
