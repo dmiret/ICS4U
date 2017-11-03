@@ -9,7 +9,6 @@ public class nQueensDriver {
 		Board gameBoard = new Board(n);
 		arrangeQueens();
 		
-
 	}
 
 	private static void introMessage() {
