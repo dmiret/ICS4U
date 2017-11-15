@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+//By Daniel Miret
 public class BadNeighbor {
 	static int base = 0;
 	static int[] houses;

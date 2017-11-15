@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+//By Daniel Miret
 public class ZigZag {
 	static int base = 0;
 	static public int[] solution = new int[base + 1];
