@@ -604,8 +604,8 @@ public class Graph {
      * Unit tests the <tt>Graph</tt> data type.
      */
     public static void main(String[] args) {
-        //In in = new In(new File("testdata/tinyGraph.dat"));
-        Graph G = new Graph(4,4,false,true,false);
+        In in = new In(new File("testdata/tinyGraph.dat"));
+        Graph G = new Graph(in);
         
      //   G.disconnectVertex(5);
         StdOut.println(G);
